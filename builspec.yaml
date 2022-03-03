@@ -9,13 +9,11 @@ phases:
   pre_build:
     commands:
       - echo npm install
-#      - sudo npm i
     finally:
       - echo This always runs even if the login command fails
   build:
     commands:
       - echo Build started on `date`
-#      - npm run build
     finally:
       - echo This always runs even if the install command fails
   post_build:
