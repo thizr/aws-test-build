@@ -1,0 +1,30 @@
+version: 0.2
+run-os: linux
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+    finally:
+      - echo This always runs even if the update or install command fails
+  pre_build:
+    commands:
+      - echo npm install
+#      - sudo npm i
+    finally:
+      - echo This always runs even if the login command fails
+  build:
+    commands:
+      - echo Build started on `date`
+#      - npm run build
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo docker compose up
+#      - sudo docker-compose up -d && sudo docker-compose restart -d
+
+artifacts:
+  files:
+    - /home/ubuntu/test-aws
+  discard-paths: yes
